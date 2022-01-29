@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="photo" class="form-control-label">Stok Barang</label>
                     <input type="file" name="photo" value="{{ old('photo') }}" accept="image/*" required
-                        class="form-control @error('quantity') is-invalid @enderror" />
+                        class="form-control @error('photo') is-invalid @enderror" />
                     @error('photo') <div class="text-muted">{{ $message }}</div>
                     @enderror
                 </div>
