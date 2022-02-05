@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)->name('logout');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('products/{id}/gallery', [ProductController::class, 'gallery'])->name('products.gallery');
 
