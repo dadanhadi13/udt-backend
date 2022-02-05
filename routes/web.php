@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\LogoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('user', UserController::class);
+    Route::post('logout', LogoutController::class)->name('logout');
+});
 
 Auth::routes();
 
